@@ -1,54 +1,189 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Frontend para Gestión de Libros y Autores
 
-Currently, two official plugins are available:
+Este proyecto es la interfaz de usuario desarrollada con React y TypeScript para interactuar con el backend de gestión de libros y autores (LibrosWebAPI). Permite a los usuarios visualizar listas de libros y autores, crear nuevos registros, editar la información existente y eliminar elementos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías Utilizadas
 
-## Expanding the ESLint configuration
+* **React:** Biblioteca de JavaScript para construir interfaces de usuario dinámicas y reutilizables.
+* **TypeScript:** Superset de JavaScript que añade tipado estático, mejorando la mantenibilidad y detección de errores en tiempo de desarrollo.
+* **React Router DOM:** Proporciona componentes para la navegación declarativa en aplicaciones React con enrutamiento dinámico.
+* **Axios:** Cliente HTTP basado en promesas utilizado para realizar solicitudes al backend API.
+* **SweetAlert2:** Biblioteca para mostrar alertas responsivas y personalizables, mejorando la experiencia del usuario para confirmaciones y notificaciones.
+* **Tailwind CSS:** Framework de CSS utility-first que facilita la aplicación de estilos de manera rápida y consistente utilizando clases predefinidas.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Funcionalidades
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+La aplicación frontend ofrece las siguientes vistas y funcionalidades para la gestión de libros y autores:
+
+### Libros
+
+* **Lista de Libros:** Muestra una lista paginada de libros, incluyendo título, descripción, fecha de publicación y número de páginas. Implementa lazy loading para mejorar el rendimiento al cargar grandes cantidades de datos.
+* **Agregar Nuevo Libro:** Formulario para crear nuevos registros de libros.
+* **Editar Libro:** Formulario para modificar la información de un libro existente.
+* **Eliminar Libro:** Funcionalidad para eliminar un libro específico con confirmación del usuario.
+
+### Autores
+
+* **Lista de Autores:** Muestra una lista de todos los autores, incluyendo su ID, ID de libro, nombre y apellido.
+* **Agregar Nuevo Autor:** Formulario para crear nuevos registros de autores, asociándolos a un ID de libro.
+* **Editar Autor:** Formulario para modificar la información de un autor existente.
+* **Eliminar Autor:** Funcionalidad para eliminar un autor específico con confirmación del usuario.
+
+## Estructura del Proyecto
+Asistente de programación
+Markdown
+
+# Frontend para Gestión de Libros y Autores
+
+Este proyecto es la interfaz de usuario desarrollada con React y TypeScript para interactuar con el backend de gestión de libros y autores (LibrosWebAPI). Permite a los usuarios visualizar listas de libros y autores, crear nuevos registros, editar la información existente y eliminar elementos.
+
+## Tecnologías Utilizadas
+
+* **React:** Biblioteca de JavaScript para construir interfaces de usuario dinámicas y reutilizables.
+* **TypeScript:** Superset de JavaScript que añade tipado estático, mejorando la mantenibilidad y detección de errores en tiempo de desarrollo.
+* **React Router DOM:** Proporciona componentes para la navegación declarativa en aplicaciones React con enrutamiento dinámico.
+* **Axios:** Cliente HTTP basado en promesas utilizado para realizar solicitudes al backend API.
+* **SweetAlert2:** Biblioteca para mostrar alertas responsivas y personalizables, mejorando la experiencia del usuario para confirmaciones y notificaciones.
+* **Tailwind CSS:** Framework de CSS utility-first que facilita la aplicación de estilos de manera rápida y consistente utilizando clases predefinidas.
+
+## Funcionalidades
+
+La aplicación frontend ofrece las siguientes vistas y funcionalidades para la gestión de libros y autores:
+
+### Libros
+
+* **Lista de Libros:** Muestra una lista paginada de libros, incluyendo título, descripción, fecha de publicación y número de páginas. Implementa lazy loading para mejorar el rendimiento al cargar grandes cantidades de datos.
+* **Agregar Nuevo Libro:** Formulario para crear nuevos registros de libros.
+* **Editar Libro:** Formulario para modificar la información de un libro existente.
+* **Eliminar Libro:** Funcionalidad para eliminar un libro específico con confirmación del usuario.
+
+### Autores
+
+* **Lista de Autores:** Muestra una lista de todos los autores, incluyendo su ID, ID de libro, nombre y apellido.
+* **Agregar Nuevo Autor:** Formulario para crear nuevos registros de autores, asociándolos a un ID de libro.
+* **Editar Autor:** Formulario para modificar la información de un autor existente.
+* **Eliminar Autor:** Funcionalidad para eliminar un autor específico con confirmación del usuario.
+
+## Estructura del Proyecto
+
+frontend/
+├── src/
+│   ├── components/
+│   ├── autor/
+│   │   ├── types/
+│   │   │   │   ├── autor.d.ts      (Definiciones de tipo para la entidad Autor)
+│   │   ├── FormularioAutor.tsx      (Formulario para agregar/editar autores)
+│   │   ├── ListaAutor.tsx      (Lista de autores)
+│   │   └── ... otros componentes reutilizables
+│   ├── book/
+│   │   ├── types/
+│   │   │   │   ├── book.d.ts    (Definiciones de tipo para la entidad Libro)
+│   │   ├── FormularioLibro.tsx    (Formulario para agregar/editar libros)
+│   │   ├── ListaLibros.tsx        (Lista de libros con lazy loading)
+│   │   ├── ListaLibros.tsx        (Lista de libros con lazy loading)    
+│   ├── shared/
+│   │   ├── Loading.tsx         (Componente de carga visual)
+│   ├── layout/
+│   │   ├── Index.tsx         (Layout de la app web)
+│   │   ├── Navbar.tsx         (Navegador de la app web)
+│   ├── utils/
+│   │   └── constant.ts         (Archivo para definir constantes como la URL base de la API)
+│   │   ├── helper.ts       (Funciones generales de utilidad)    
+│   ├── App.tsx                 (Componente principal de la aplicación)
+│   ├── index.tsx               (Punto de entrada de la aplicación)
+│   └── ... otros archivos de la aplicación
+├── public/
+├── ... otros archivos de configuración (package.json, tsconfig.json, etc.)
+
+## Configuración
+
+La URL base del backend API (.NET LibrosWebAPI) se define en el archivo `src/utils/constant.ts`. Necesitas actualizar la variable `BaseAPIURL` con la URL correcta donde se está ejecutando tu backend.
+
+```typescript
+export const BaseAPIURL = 'TU_URL_DEL_BACKEND_NET'; // Reemplaza con la URL de la API .NET
+
+Asistente de programación
+Markdown
+
+# Frontend para Gestión de Libros y Autores
+
+Este proyecto es la interfaz de usuario desarrollada con React y TypeScript para interactuar con el backend de gestión de libros y autores (LibrosWebAPI). Permite a los usuarios visualizar listas de libros y autores, crear nuevos registros, editar la información existente y eliminar elementos.
+
+## Tecnologías Utilizadas
+
+* **React:** Biblioteca de JavaScript para construir interfaces de usuario dinámicas y reutilizables.
+* **TypeScript:** Superset de JavaScript que añade tipado estático, mejorando la mantenibilidad y detección de errores en tiempo de desarrollo.
+* **React Router DOM:** Proporciona componentes para la navegación declarativa en aplicaciones React con enrutamiento dinámico.
+* **Axios:** Cliente HTTP basado en promesas utilizado para realizar solicitudes al backend API.
+* **SweetAlert2:** Biblioteca para mostrar alertas responsivas y personalizables, mejorando la experiencia del usuario para confirmaciones y notificaciones.
+* **Tailwind CSS:** Framework de CSS utility-first que facilita la aplicación de estilos de manera rápida y consistente utilizando clases predefinidas.
+
+## Funcionalidades
+
+La aplicación frontend ofrece las siguientes vistas y funcionalidades para la gestión de libros y autores:
+
+### Libros
+
+* **Lista de Libros:** Muestra una lista paginada de libros, incluyendo título, descripción, fecha de publicación y número de páginas. Implementa lazy loading para mejorar el rendimiento al cargar grandes cantidades de datos.
+* **Agregar Nuevo Libro:** Formulario para crear nuevos registros de libros.
+* **Editar Libro:** Formulario para modificar la información de un libro existente.
+* **Eliminar Libro:** Funcionalidad para eliminar un libro específico con confirmación del usuario.
+
+### Autores
+
+* **Lista de Autores:** Muestra una lista de todos los autores, incluyendo su ID, ID de libro, nombre y apellido.
+* **Agregar Nuevo Autor:** Formulario para crear nuevos registros de autores, asociándolos a un ID de libro.
+* **Editar Autor:** Formulario para modificar la información de un autor existente.
+* **Eliminar Autor:** Funcionalidad para eliminar un autor específico con confirmación del usuario.
+
+## Estructura del Proyecto
+
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── AuthorForm.tsx      (Formulario para agregar/editar autores)
+│   │   ├── AuthorList.tsx      (Lista de autores)
+│   │   ├── BookForm.tsx        (Formulario para agregar/editar libros)
+│   │   ├── BookList.tsx        (Lista de libros con lazy loading)
+│   │   ├── Loading.tsx         (Componente de carga visual)
+│   │   └── ... otros componentes reutilizables
+│   ├── hooks/
+│   │   └── useApi.ts           (Hook personalizado para simplificar llamadas a la API)
+│   ├── types/
+│   │   ├── author.ts           (Definiciones de tipo para la entidad Autor)
+│   │   └── book.ts             (Definiciones de tipo para la entidad Libro)
+│   ├── utils/
+│   │   └── constant.ts         (Archivo para definir constantes como la URL base de la API)
+│   ├── App.tsx                 (Componente principal de la aplicación)
+│   ├── index.tsx               (Punto de entrada de la aplicación)
+│   └── ... otros archivos de la aplicación
+├── public/
+├── ... otros archivos de configuración (package.json, tsconfig.json, etc.)
+
+
+## Configuración
+
+La URL base del backend API (.NET LibrosWebAPI) se define en el archivo `src/utils/constant.ts`. Necesitas actualizar la variable `BaseAPIURL` con la URL correcta donde se está ejecutando tu backend.
+
+```typescript
+export const BaseAPIURL = 'TU_URL_DEL_BACKEND_NET'; // Reemplaza con la URL de tu API .NET
+```
+Ejecución
+Navega al directorio frontend en tu terminal:
+
+
+cd frontend
+Instala las dependencias del proyecto utilizando npm:
+
+```bash
+npm install
+
+```
+Inicia la aplicación en modo de desarrollo:
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Esto abrirá la aplicación en tu navegador (generalmente en http://localhost:3000).
