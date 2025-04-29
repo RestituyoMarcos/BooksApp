@@ -67,7 +67,7 @@ La aplicación frontend ofrece las siguientes vistas y funcionalidades para la g
 * **Eliminar Autor:** Funcionalidad para eliminar un autor específico con confirmación del usuario.
 
 ## Estructura del Proyecto
-
+```typescript
 frontend/
 ├── src/
 │   ├── components/
@@ -96,6 +96,7 @@ frontend/
 │   └── ... otros archivos de la aplicación
 ├── public/
 ├── ... otros archivos de configuración (package.json, tsconfig.json, etc.)
+```
 
 ## Configuración
 
